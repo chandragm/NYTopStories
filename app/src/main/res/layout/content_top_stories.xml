@@ -9,11 +9,13 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="in.chandramouligoru.nytopstories.TopStoriesListActivity"
-    tools:showIn="@layout/activity_top_stories_list">
+    tools:context="in.chandramouligoru.nytopstories.activity.TopStoriesActivity"
+    tools:showIn="@layout/app_bar_top_stories">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_article_list" />
+
 </RelativeLayout>

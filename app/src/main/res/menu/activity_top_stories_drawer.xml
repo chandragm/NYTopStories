@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="home" />
+        <item
+            android:id="@+id/nav_world"
+            android:title="world" />
+        <item
+            android:id="@+id/nav_national"
+            android:title="national" />
+        <item
+            android:id="@+id/nav_politics"
+            android:title="politics" />
+
+        <item
+            android:id="@+id/nav_technology"
+            android:title="technology" />
+        <item
+            android:id="@+id/nav_travel"
+            android:title="travel" />
+
+        <item
+            android:id="@+id/nav_fashion"
+            android:title="fashion" />
+        <item
+            android:id="@+id/nav_sports"
+            android:title="sports" />
+        <item
+            android:id="@+id/nav_health"
+            android:title="health" />
+        <item
+            android:id="@+id/nav_arts"
+            android:title="arts" />
+    </group>
+
+</menu>

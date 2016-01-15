@@ -1,6 +1,7 @@
 package in.chandramouligoru.nytopstories.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import java.util.Locale;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import in.chandramouligoru.nytopstories.R;
+import in.chandramouligoru.nytopstories.activity.ArticleActivity;
 import in.chandramouligoru.nytopstories.model.Article;
 import in.chandramouligoru.nytopstories.model.MultiMedia;
 
@@ -57,6 +59,10 @@ public class TopStoriesRecyclerViewAdapter extends RecyclerView.Adapter<TopStori
 
         holder.mView.setOnClickListener(v -> {
             //Launch the article activity here.
+            //Launch the article activity here.
+            Intent intent = new Intent(mContext, ArticleActivity.class);
+            intent.putExtra(ArticleActivity.INTENT_ARG_ARTICLE_URL, article.url);
+            mContext.startActivity(intent);
         });
     }
 

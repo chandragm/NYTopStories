@@ -3,6 +3,7 @@ package in.chandramouligoru.nytopstories.injection.component;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import in.chandramouligoru.nytopstories.activity.ArticleActivity;
 import in.chandramouligoru.nytopstories.activity.BaseActivity;
 import in.chandramouligoru.nytopstories.activity.SplashActivity;
 import in.chandramouligoru.nytopstories.fragments.TopStoriesFragment;
@@ -22,7 +23,7 @@ public interface AppComponent {
 
     void inject(SplashActivity activity);
 
-//    void inject(FullscreenActivity activity);
+    void inject(ArticleActivity activity);
 
     RetrofitService provideRetrofitService();
 

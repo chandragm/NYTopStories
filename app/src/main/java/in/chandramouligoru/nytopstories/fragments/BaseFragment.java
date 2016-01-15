@@ -1,6 +1,7 @@
 package in.chandramouligoru.nytopstories.fragments;
 
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ public class BaseFragment extends Fragment {
     protected CompositeSubscription compositeSubscription;
 
     protected ProgressBar mProgressBar;
+    private ProgressDialog mProgressDialog;
 
     public BaseFragment() {
         // Required empty public constructor
@@ -43,10 +45,29 @@ public class BaseFragment extends Fragment {
         }
     }
 
-    public void showHideLoading(boolean showHide) {
-        if (showHide)
-            mProgressBar.setVisibility(View.VISIBLE);
-        else
-            mProgressBar.setVisibility(View.GONE);
+//    public void showHideLoading(boolean showHide) {
+//        if (showHide)
+//            mProgressBar.setVisibility(View.VISIBLE);
+//        else
+//            mProgressBar.setVisibility(View.GONE);
+//    }
+
+    protected void showHideLoading(boolean showHide) {
+        if(mProgressDialog != null) {
+            if(showHide)
+                mProgressDialog.show();
+            else mProgressDialog.dismiss();
+        } else if(showHide){
+            showDialog("Loading..");
+        }
+    }
+
+    protected void showDialog(String s) {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(getActivity());
+        }
+        mProgressDialog.setMessage(s);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
     }
 }

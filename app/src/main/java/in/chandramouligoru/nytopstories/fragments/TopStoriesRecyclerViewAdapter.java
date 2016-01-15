@@ -2,6 +2,7 @@ package in.chandramouligoru.nytopstories.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,10 +59,14 @@ public class TopStoriesRecyclerViewAdapter extends RecyclerView.Adapter<TopStori
                     .into(holder.mArticleThumbnail);
 
         holder.mView.setOnClickListener(v -> {
-            //Launch the article activity here.
+            //Not responsive enough.
             Intent intent = new Intent(mContext, ArticleActivity.class);
             intent.putExtra(ArticleActivity.INTENT_ARG_ARTICLE_URL, article.url);
             mContext.startActivity(intent);
+
+//            Uri webpage = Uri.parse(article.url);
+//            Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+//            mContext.startActivity(intent);
         });
     }
 

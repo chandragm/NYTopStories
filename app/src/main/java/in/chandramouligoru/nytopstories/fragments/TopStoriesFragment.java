@@ -68,6 +68,7 @@ public class TopStoriesFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_article_list, container, false);
         ButterKnife.bind(this, view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -82,6 +83,7 @@ public class TopStoriesFragment extends BaseFragment {
     }
 
     private void loadTopStories() {
+        showHideLoading(true);
         Subscription subscription = mRetrofitService
                 .getTopStories(mSection, "json", BuildConfig.API_KEY)
                 .map(topStoriesResponse -> {
@@ -95,6 +97,7 @@ public class TopStoriesFragment extends BaseFragment {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(articles -> {
+                    showHideLoading(false);
                     onDataFetched(articles);
                 });
         compositeSubscription.add(subscription);

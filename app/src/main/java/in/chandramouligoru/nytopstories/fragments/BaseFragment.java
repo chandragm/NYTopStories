@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 
 import in.chandramouligoru.nytopstories.R;
 import rx.subscriptions.CompositeSubscription;
@@ -18,6 +18,8 @@ public class BaseFragment extends Fragment {
 
     protected CompositeSubscription compositeSubscription;
 
+    protected ProgressBar mProgressBar;
+
     public BaseFragment() {
         // Required empty public constructor
         compositeSubscription = new CompositeSubscription();
@@ -27,9 +29,8 @@ public class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        TextView textView = new TextView(getActivity());
-        textView.setText(R.string.loading);
-        return textView;
+        mProgressBar = (ProgressBar) inflater.inflate(R.layout.base_fragment_layout, container, false);
+        return mProgressBar;
     }
 
     @Override
@@ -40,5 +41,12 @@ public class BaseFragment extends Fragment {
             compositeSubscription.unsubscribe();
             compositeSubscription = null;
         }
+    }
+
+    public void showHideLoading(boolean showHide) {
+        if (showHide)
+            mProgressBar.setVisibility(View.VISIBLE);
+        else
+            mProgressBar.setVisibility(View.GONE);
     }
 }

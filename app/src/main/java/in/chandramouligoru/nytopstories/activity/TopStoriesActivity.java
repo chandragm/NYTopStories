@@ -66,11 +66,17 @@ public class TopStoriesActivity extends BaseActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        TopStoriesFragment fragment = TopStoriesFragment.newInstance(item.getTitle().toString());
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, fragment);
-        transaction.commit();
+
+        if(isNetworkAvailable()) {
+            // Handle navigation view item clicks here.
+            TopStoriesFragment fragment = TopStoriesFragment.newInstance(item.getTitle().toString());
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.commit();
+        }
+         else {
+            showNoNetworkError();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

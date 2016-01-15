@@ -59,7 +59,6 @@ public class TopStoriesRecyclerViewAdapter extends RecyclerView.Adapter<TopStori
 
         holder.mView.setOnClickListener(v -> {
             //Launch the article activity here.
-            //Launch the article activity here.
             Intent intent = new Intent(mContext, ArticleActivity.class);
             intent.putExtra(ArticleActivity.INTENT_ARG_ARTICLE_URL, article.url);
             mContext.startActivity(intent);

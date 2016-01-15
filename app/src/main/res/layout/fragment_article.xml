@@ -3,10 +3,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:paddingBottom="@dimen/dp5"
+    android:paddingLeft="@dimen/dp5"
+    android:paddingRight="@dimen/dp5"
+    android:paddingTop="@dimen/dp5">
 
     <RelativeLayout
         android:id="@+id/layout"
@@ -16,29 +16,29 @@
 
         <ImageView
             android:id="@+id/article_thumbnail"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
+            android:layout_width="@dimen/dp75"
+            android:layout_height="@dimen/dp75"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="@dimen/dp10"/>
 
         <TextView
             android:id="@+id/article_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/article_thumbnail"
-            android:text="Medium Text"
+            android:text="@null"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@+id/article_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Small Text"
+            android:text="@null"
             android:layout_toRightOf="@+id/article_thumbnail"
             android:layout_below="@id/article_title"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="@dimen/dp5"/>
     </RelativeLayout>
 
 
@@ -49,5 +49,5 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/layout"
-        android:text="New Text" />
+        android:text="@null" />
 </RelativeLayout>

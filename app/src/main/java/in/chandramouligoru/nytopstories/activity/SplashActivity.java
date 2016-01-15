@@ -37,6 +37,7 @@ public class SplashActivity extends BaseActivity {
 
 
     private void loadTopStories() {
+        //Initially load section home.
         Subscription subscription = mRetrofitService
                 .getTopStories("home", "json", BuildConfig.API_KEY)
                 .map(topStoriesResponse -> {
